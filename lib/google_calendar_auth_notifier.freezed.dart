@@ -108,8 +108,8 @@ class __$DisconnectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Disconnected implements _Disconnected {
-  const _$_Disconnected();
+class _$_Disconnected extends _Disconnected {
+  const _$_Disconnected() : super._();
 
   @override
   String toString() {
@@ -173,8 +173,9 @@ class _$_Disconnected implements _Disconnected {
   }
 }
 
-abstract class _Disconnected implements GoogleCalendarAuthState {
+abstract class _Disconnected extends GoogleCalendarAuthState {
   const factory _Disconnected() = _$_Disconnected;
+  const _Disconnected._() : super._();
 }
 
 /// @nodoc
@@ -210,8 +211,8 @@ class __$ConnectedCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Connected implements _Connected {
-  const _$_Connected(this.calendar);
+class _$_Connected extends _Connected {
+  const _$_Connected(this.calendar) : super._();
 
   @override
   final CalendarApi calendar;
@@ -288,8 +289,9 @@ class _$_Connected implements _Connected {
   }
 }
 
-abstract class _Connected implements GoogleCalendarAuthState {
+abstract class _Connected extends GoogleCalendarAuthState {
   const factory _Connected(CalendarApi calendar) = _$_Connected;
+  const _Connected._() : super._();
 
   CalendarApi get calendar => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -329,8 +331,8 @@ class __$ErrorCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Error implements _Error {
-  const _$_Error(this.messgae);
+class _$_Error extends _Error {
+  const _$_Error(this.messgae) : super._();
 
   @override
   final String messgae;
@@ -406,8 +408,9 @@ class _$_Error implements _Error {
   }
 }
 
-abstract class _Error implements GoogleCalendarAuthState {
+abstract class _Error extends GoogleCalendarAuthState {
   const factory _Error(String messgae) = _$_Error;
+  const _Error._() : super._();
 
   String get messgae => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)

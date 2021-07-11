@@ -11,10 +11,16 @@ part 'google_calendar_auth_notifier.freezed.dart';
 
 @freezed
 abstract class GoogleCalendarAuthState with _$GoogleCalendarAuthState {
+  const GoogleCalendarAuthState._();
   const factory GoogleCalendarAuthState.disconnected() = _Disconnected;
   const factory GoogleCalendarAuthState.connected(CalendarApi calendar) =
       _Connected;
   const factory GoogleCalendarAuthState.error(String messgae) = _Error;
+
+  CalendarApi? get api => this.maybeWhen<CalendarApi?>(
+        orElse: () => null,
+        connected: (calendarApi) => calendarApi,
+      );
 }
 
 class GoogleCalendarAuthNotifier
