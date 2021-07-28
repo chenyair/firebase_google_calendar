@@ -27,7 +27,7 @@ class GoogleCalendarAuthNotifier
     extends StateNotifier<GoogleCalendarAuthState> {
   late StreamSubscription _userStateSubscription;
   final _googleSignIn =
-      GoogleSignIn(scopes: [CalendarApi.calendarEventsReadonlyScope]);
+      GoogleSignIn(scopes: [CalendarApi.calendarReadonlyScope]);
 
   GoogleCalendarAuthNotifier() : super(GoogleCalendarAuthState.disconnected()) {
     _listenToUserState();
@@ -72,6 +72,10 @@ class GoogleCalendarAuthNotifier
     } catch (e) {
       state = GoogleCalendarAuthState.error('Could not sign in with google');
     }
+  }
+  
+  Future<void> signOut() async {
+    await FirebaseAuth.instance.signOut();
   }
 
   @override
